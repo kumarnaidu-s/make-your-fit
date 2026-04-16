@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Make Your Fit — Bespoke Men's Tailoring</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@200;300;400;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- ───── STICKY HEADER ───── -->
+  <header id="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo">Make Your Fit</a>
+      <nav>
+        <a href="#gallery">Fabric Gallery</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#saved" id="nav-saved">My Saved Measurements</a>
+      </nav>
+      <button class="cta-btn" onclick="document.getElementById('customizer').scrollIntoView({behavior:'smooth'})">Begin Your Order</button>
+    </div>
+  </header>
+
+  <!-- ───── HERO ───── -->
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <img class="hero-img" src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1600&q=80" alt="Tailor's Workshop"/>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Est. in Excellence</span>
+      <h1>Your Fabric.<br/><em>Your Design.</em><br/>Your Perfect Fit.</h1>
+      <p class="hero-sub">Handcrafted bespoke garments — built around you, only you.</p>
+      <button class="hero-cta" onclick="document.getElementById('customizer').scrollIntoView({behavior:'smooth'})">
+        Start Customising
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ───── FABRIC GALLERY ───── -->
+  <section id="gallery" class="section gallery-section">
+    <div class="section-label">Our Materials</div>
+    <h2 class="section-title">Fabric Gallery</h2>
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Cotton"/>
+        <div class="gallery-info"><span class="fabric-tag">Cotton</span><p>Breathable & timeless</p></div>
+      </div>
+      <div class="gallery-card tall">
+        <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&q=80" alt="Silk"/>
+        <div class="gallery-info"><span class="fabric-tag">Silk</span><p>Luxuriously smooth</p></div>
+      </div>
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1606890542085-5f6dca2e80d7?w=600&q=80" alt="Linen"/>
+        <div class="gallery-info"><span class="fabric-tag">Linen</span><p>Cool summer elegance</p></div>
+      </div>
+      <div class="gallery-card tall">
+        <img src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?w=600&q=80" alt="Premium Wool"/>
+        <div class="gallery-info"><span class="fabric-tag">Premium Wool</span><p>Warmth & refinement</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── HOW IT WORKS ───── -->
+  <section id="how-it-works" class="section hiw-section">
+    <div class="section-label">The Process</div>
+    <h2 class="section-title">How It Works</h2>
+    <div class="hiw-steps">
+      <div class="hiw-step">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <h3>Choose Your Fabric</h3>
+          <p>Select from our curated range — Cotton, Silk, Linen, and Premium Wool.</p>
+        </div>
+      </div>
+      <div class="hiw-divider"></div>
+      <div class="hiw-step">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <h3>Pick Color & Texture</h3>
+          <p>Define the palette and weave that speaks to your personal style.</p>
+        </div>
+      </div>
+      <div class="hiw-divider"></div>
+      <div class="hiw-step">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <h3>Design the Details</h3>
+          <p>Choose your collar, cuffs, and the fit that flatters your build.</p>
+        </div>
+      </div>
+      <div class="hiw-divider"></div>
+      <div class="hiw-step">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <h3>Submit Measurements</h3>
+          <p>Enter your precise measurements and our tailors handle the rest.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── CUSTOMIZER ───── -->
+  <section id="customizer" class="section customizer-section">
+    <div class="section-label">Your Journey</div>
+    <h2 class="section-title">Customise Your Piece</h2>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+      <div class="progress-track" id="progress-track"></div>
+      <div class="progress-steps">
+        <div class="p-step active" data-step="1"><span class="p-dot"></span><span class="p-label">Fabric</span></div>
+        <div class="p-step" data-step="2"><span class="p-dot"></span><span class="p-label">Color & Texture</span></div>
+        <div class="p-step" data-step="3"><span class="p-dot"></span><span class="p-label">Design & Fit</span></div>
+        <div class="p-step" data-step="4"><span class="p-dot"></span><span class="p-label">Measurements</span></div>
+      </div>
+    </div>
+
+    <div class="customizer-body">
+
+      <!-- STEP 1: Fabric -->
+      <div class="step-panel active" id="step-1">
+        <h3 class="step-heading">Step 1 — Choose Your Cloth</h3>
+        <div class="fabric-grid">
+          <div class="fabric-card" data-fabric="Cotton">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=70" alt="Cotton"/>
+            <div class="fabric-card-label">Cotton</div>
+            <div class="fabric-card-desc">Classic, breathable, everyday luxury</div>
+          </div>
+          <div class="fabric-card" data-fabric="Silk">
+            <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&q=70" alt="Silk"/>
+            <div class="fabric-card-label">Silk</div>
+            <div class="fabric-card-desc">Smooth, lustrous, ultra-premium</div>
+          </div>
+          <div class="fabric-card" data-fabric="Linen">
+            <img src="https://images.unsplash.com/photo-1606890542085-5f6dca2e80d7?w=400&q=70" alt="Linen"/>
+            <div class="fabric-card-label">Linen</div>
+            <div class="fabric-card-desc">Lightweight, cool, structured drape</div>
+          </div>
+          <div class="fabric-card" data-fabric="Premium Wool">
+            <img src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?w=400&q=70" alt="Premium Wool"/>
+            <div class="fabric-card-label">Premium Wool</div>
+            <div class="fabric-card-desc">Warm, refined, timeless weight</div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn-next" id="s1-next" disabled onclick="goToStep(2)">Next: Color & Texture →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Color & Texture -->
+      <div class="step-panel" id="step-2">
+        <h3 class="step-heading">Step 2 — Color & Texture</h3>
+        <div class="sub-section">
+          <div class="sub-label">Select Color</div>
+          <div class="color-grid">
+            <button class="color-swatch" data-color="Sky Blue" style="background:#7EB8C9;" title="Sky Blue"></button>
+            <button class="color-swatch" data-color="Royal Navy" style="background:#1B2A4A;" title="Royal Navy"></button>
+            <button class="color-swatch" data-color="Crisp White" style="background:#F5F5F0;border:1px solid #ccc;" title="Crisp White"></button>
+            <button class="color-swatch" data-color="Charcoal" style="background:#3D3D3D;" title="Charcoal"></button>
+            <button class="color-swatch" data-color="Slate Grey" style="background:#708090;" title="Slate Grey"></button>
+            <button class="color-swatch" data-color="Ivory Cream" style="background:#FFF8E7;border:1px solid #ddd;" title="Ivory Cream"></button>
+            <button class="color-swatch" data-color="Forest Green" style="background:#2D5016;" title="Forest Green"></button>
+            <button class="color-swatch" data-color="Burgundy" style="background:#6B2737;" title="Burgundy"></button>
+          </div>
+          <div class="selected-label" id="color-selected">No color chosen</div>
+        </div>
+        <div class="sub-section">
+          <div class="sub-label">Select Texture</div>
+          <div class="texture-grid">
+            <div class="texture-card" data-texture="Twill">
+              <div class="texture-visual twill"></div>
+              <span>Twill</span>
+            </div>
+            <div class="texture-card" data-texture="Herringbone">
+              <div class="texture-visual herringbone"></div>
+              <span>Herringbone</span>
+            </div>
+            <div class="texture-card" data-texture="Plain">
+              <div class="texture-visual plain"></div>
+              <span>Plain</span>
+            </div>
+            <div class="texture-card" data-texture="Oxford">
+              <div class="texture-visual oxford"></div>
+              <span>Oxford</span>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn-back" onclick="goToStep(1)">← Back</button>
+          <button class="btn-next" id="s2-next" disabled onclick="goToStep(3)">Next: Design & Fit →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Design & Fit -->
+      <div class="step-panel" id="step-3">
+        <h3 class="step-heading">Step 3 — Design & Fit</h3>
+        <div class="sub-section">
+          <div class="sub-label">Choose Your Fit</div>
+          <div class="option-pills" id="fit-options">
+            <button class="pill" data-group="fit" data-val="Slim">Slim</button>
+            <button class="pill" data-group="fit" data-val="Athletic">Athletic</button>
+            <button class="pill" data-group="fit" data-val="Regular">Regular</button>
+          </div>
+        </div>
+        <div class="sub-section">
+          <div class="sub-label">Collar Style</div>
+          <div class="option-pills" id="collar-options">
+            <button class="pill" data-group="collar" data-val="Mandarin Collar">Mandarin</button>
+            <button class="pill" data-group="collar" data-val="Spread Collar">Spread</button>
+            <button class="pill" data-group="collar" data-val="Button-Down Collar">Button-Down</button>
+            <button class="pill" data-group="collar" data-val="Point Collar">Point</button>
+          </div>
+        </div>
+        <div class="sub-section">
+          <div class="sub-label">Cuff Style</div>
+          <div class="option-pills" id="cuff-options">
+            <button class="pill" data-group="cuffs" data-val="French Cuffs">French Cuffs</button>
+            <button class="pill" data-group="cuffs" data-val="Button Cuffs">Button Cuffs</button>
+            <button class="pill" data-group="cuffs" data-val="Barrel Cuffs">Barrel Cuffs</button>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn-back" onclick="goToStep(2)">← Back</button>
+          <button class="btn-next" id="s3-next" disabled onclick="goToStep(4)">Next: Measurements →</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: Measurements -->
+      <div class="step-panel" id="step-4">
+        <h3 class="step-heading">Step 4 — Your Measurements</h3>
+        <p class="step-sub">All measurements in inches. Tip: measure over your dress shirt for best results.</p>
+        <div class="measure-form">
+          <div class="measure-row">
+            <div class="measure-field">
+              <label for="m-neck">Neck</label>
+              <input type="number" id="m-neck" placeholder="e.g. 15.5" step="0.5" min="12" max="22"/>
+              <span class="unit">in</span>
+            </div>
+            <div class="measure-field">
+              <label for="m-chest">Chest</label>
+              <input type="number" id="m-chest" placeholder="e.g. 40" step="0.5" min="28" max="60"/>
+              <span class="unit">in</span>
+            </div>
+          </div>
+          <div class="measure-row">
+            <div class="measure-field">
+              <label for="m-waist">Waist</label>
+              <input type="number" id="m-waist" placeholder="e.g. 34" step="0.5" min="24" max="55"/>
+              <span class="unit">in</span>
+            </div>
+            <div class="measure-field">
+              <label for="m-sleeve">Sleeve</label>
+              <input type="number" id="m-sleeve" placeholder="e.g. 25" step="0.5" min="18" max="40"/>
+              <span class="unit">in</span>
+            </div>
+          </div>
+          <div class="measure-row single">
+            <div class="measure-field">
+              <label for="m-length">Shirt Length</label>
+              <input type="number" id="m-length" placeholder="e.g. 30" step="0.5" min="24" max="45"/>
+              <span class="unit">in</span>
+            </div>
+          </div>
+        </div>
+        <div id="save-toast" class="save-toast hidden">✓ Measurements saved to your browser</div>
+        <div class="step-nav measure-nav">
+          <button class="btn-back" onclick="goToStep(3)">← Back</button>
+          <button class="btn-save" onclick="saveMeasurements()">Save My Measurements</button>
+          <button class="btn-submit" onclick="submitOrder()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            Send Order via WhatsApp
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 5: Confirmation -->
+      <div class="step-panel" id="step-5">
+        <div class="confirm-wrap">
+          <div class="confirm-icon">✦</div>
+          <h3>Your Order Summary</h3>
+          <div class="order-summary" id="order-summary"></div>
+          <button class="btn-submit" onclick="sendWhatsApp()">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.148-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Confirm on WhatsApp
+          </button>
+          <button class="btn-back" style="margin-top:12px" onclick="goToStep(1)">← Start Over</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───── SAVED MEASUREMENTS ───── -->
+  <section id="saved" class="section saved-section">
+    <div class="section-label">Stored Locally</div>
+    <h2 class="section-title">My Saved Measurements</h2>
+    <div id="saved-display" class="saved-display">
+      <p class="no-saved">No measurements saved yet. Complete Step 4 and click 'Save My Measurements'.</p>
+    </div>
+    <button class="btn-clear" onclick="clearMeasurements()">Clear Saved Data</button>
+  </section>
+
+  <!-- ───── FOOTER ───── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">Make Your Fit</div>
+        <p>Bespoke men's tailoring, crafted with precision and passion.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigate</h4>
+        <a href="#gallery">Fabric Gallery</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#customizer">Customiser</a>
+        <a href="#saved">Saved Measurements</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <a href="mailto:harikumarsanam@gmail.com">harikumarsanam@gmail.com</a>
+        <a href="https://wa.me/918499989343">+91 84999 89343</a>
+        <p class="footer-note">Mon – Sat, 10am – 7pm IST</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Make Your Fit. All rights reserved. Men's Exclusive Tailoring.</span>
+    </div>
+  </footer>
+
+  <!-- ───── WHATSAPP FAB ───── -->
+  <a href="https://wa.me/918499989343?text=Hi%2C%20I%20want%20to%20discuss%20a%20custom%20order." target="_blank" class="whatsapp-fab" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.148-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="fab-pulse"></span>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
